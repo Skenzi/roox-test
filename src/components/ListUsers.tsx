@@ -1,9 +1,9 @@
 import React from "react";
 
 const ListUsers = () => {
-    return <div className="users-list">
+    return <ul className="list-users">
 
-    </div>
+    </ul>
 };
 
 export default ListUsers;

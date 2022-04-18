@@ -2,7 +2,8 @@ import React from "react";
 
 const UsersContainer = () => {
     return <div className="col">
-        Container
+        <h1>Список пользователей</h1>
+        <div>Container</div>
     </div>
 };
 
