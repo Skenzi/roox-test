@@ -1,5 +1,8 @@
+import React from 'react';
+import App from './components/App';
+
 const init = () => {
-    console.log('init');
-};
+  return <App />
+}
 
 export default init;

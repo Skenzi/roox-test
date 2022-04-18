@@ -6,7 +6,7 @@ const mode = process.env.NODE_ENV || 'development';
 module.exports = {
   mode,
   resolve: {
-    extensions: ['.js', '.jsx', '.tsx', '.ts'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
   },
   entry: './',
   output: {
@@ -16,11 +16,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /.\tsx?$/,
-        use: 'ts-loader',
-      },
-      {
-        test: /.\s?css$/,
+        test: /\.tsx?$/,
         use: [
           {
             loader: 'babel-loader',
@@ -31,6 +27,14 @@ module.exports = {
           {
             loader: 'ts-loader',
           },
+        ],
+      },
+      {
+        test: /\.s?css$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader',
         ],
       },
     ],
