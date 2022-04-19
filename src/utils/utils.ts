@@ -2,6 +2,9 @@
 import { User, MappingSortProps } from '../types/types';
 
 const quickSortCity = (arr: User[]): User[] => {
+  if (arr.length < 2) {
+    return arr;
+  }
   const middleInd = Math.floor(arr.length / 2);
   const middleUser = arr[middleInd];
   const less = [];
@@ -20,6 +23,9 @@ const quickSortCity = (arr: User[]): User[] => {
 };
 
 const quickSortCompany = (arr: User[]): User[] => {
+  if (arr.length < 2) {
+    return arr;
+  }
   const middleInd = Math.floor(arr.length / 2);
   const middleUser = arr[middleInd];
   const less = [];

@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Route, Routes } from 'react-router-dom';
 import SidebarContainer from './SidebarContainer';
@@ -17,10 +17,8 @@ function App() {
   }, []);
 
   const sortUsers = (type: string) => {
-    const sortedUsers = useMemo(() => {
-      const sort = mappingSorts[type];
-      return sort(users);
-    }, [type]);
+    const sort = mappingSorts[type];
+    const sortedUsers = sort(users);
     setUsers(sortedUsers);
   };
 

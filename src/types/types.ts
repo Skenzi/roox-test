@@ -36,3 +36,28 @@ export interface UsersProp {
 export interface SidebarMenuProps {
     sortUsers: (type: string) => void,
 }
+
+export interface Errors {
+    [key: string]: string | undefined,
+    name?: string,
+    username?: string,
+    email?: string,
+    street?: string,
+    city?: string,
+    zipCode?: string,
+    phone?: string,
+    website?: string,
+}
+
+export interface FormData {
+    [key: string]: string,
+    name: string,
+    username: string,
+    email: string,
+    street: string,
+    city: string,
+    zipCode: string,
+    phone: string,
+    website: string,
+    comment: string,
+}

@@ -1,69 +1,54 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Errors, FormData } from '../types/types';
 
-interface Errors {
-    name?: string,
-    username?: '',
-    email?: '',
-    street?: '',
-    city?: '',
-    zipCode?: '',
-    phone?: '',
-    website?: '',
+interface ProfileFormProps {
+    isEdit: Boolean,
+    formData: FormData,
+    errors: Errors,
+    onSubmit: (e: any) => void,
+    handlerFormData: (property: string) => (e: any) => void,
 }
 
-const validate = (values: {name: string}) => {
-  const errors: Errors = {};
-  if (values.name === '') {
-    errors.name = 'Обязательно к заполнению';
-  }
-  return errors;
-};
-
-function ProfileForm() {
-  const [formData, setFormData] = useState({
-    name: '',
-    username: '',
-    email: '',
-    street: '',
-    city: '',
-    zipCode: '',
-    phone: '',
-    website: '',
-    comment: '',
-  });
-
-  const [errors, setErrors] = useState<Errors>({});
+function ProfileForm({
+  formData, errors, onSubmit, handlerFormData, isEdit,
+}: ProfileFormProps) {
   return (
-    <form
-      onSubmit={(e) => {
-        e.preventDefault();
-        const formErrors = validate(formData);
-        if (Object.keys(formErrors).length !== 0) {
-          setErrors(formErrors);
-        } else {
-          setErrors({});
-        }
-      }}
-    >
-      <div className="form-group">
-        <input type="text" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} />
-        {errors.name ? <div>{errors.name}</div> : null}
+    <form onSubmit={onSubmit}>
+      <div>
+        <div className="form-group">
+          <input type="text" value={formData.name} readOnly={!isEdit} onChange={handlerFormData('name')} />
+          {errors.name ? <div>{errors.name}</div> : null}
+        </div>
+        <div className="form-group">
+          <input type="text" value={formData.username} readOnly={!isEdit} onChange={handlerFormData('username')} />
+          {errors.username ? <div>{errors.username}</div> : null}
+        </div>
+        <div className="form-group">
+          <input type="text" value={formData.email} readOnly={!isEdit} onChange={handlerFormData('email')} />
+          {errors.email ? <div>{errors.email}</div> : null}
+        </div>
+        <div className="form-group">
+          <input type="text" value={formData.street} readOnly={!isEdit} onChange={handlerFormData('street')} />
+          {errors.street ? <div>{errors.street}</div> : null}
+        </div>
+        <div className="form-group">
+          <input type="text" value={formData.city} readOnly={!isEdit} onChange={handlerFormData('city')} />
+          {errors.city ? <div>{errors.city}</div> : null}
+        </div>
+        <div className="form-group">
+          <input type="text" value={formData.zipCode} readOnly={!isEdit} onChange={handlerFormData('zipCode')} />
+          {errors.zipCode ? <div>{errors.zipCode}</div> : null}
+        </div>
+        <div className="form-group">
+          <input type="text" value={formData.phone} readOnly={!isEdit} onChange={handlerFormData('phone')} />
+          {errors.phone ? <div>{errors.phone}</div> : null}
+        </div>
+        <div className="form-group">
+          <input type="text" value={formData.website} readOnly={!isEdit} onChange={handlerFormData('website')} />
+          {errors.website ? <div>{errors.website}</div> : null}
+        </div>
+        <textarea value={formData.comment} onChange={handlerFormData('comment')} />
       </div>
-      <input type="text" value={formData.username} onChange={(e) => setFormData({ ...formData, username: e.target.value })} />
-      {errors.username ? <div>{errors.name}</div> : null}
-      <input type="text" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
-      {errors.email ? <div>{errors.name}</div> : null}
-      <input type="text" value={formData.street} onChange={(e) => setFormData({ ...formData, street: e.target.value })} />
-      {errors.street ? <div>{errors.name}</div> : null}
-      <input type="text" value={formData.city} onChange={(e) => setFormData({ ...formData, city: e.target.value })} />
-      {errors.city ? <div>{errors.name}</div> : null}
-      <input type="text" value={formData.zipCode} onChange={(e) => setFormData({ ...formData, zipCode: e.target.value })} />
-      {errors.zipCode ? <div>{errors.name}</div> : null}
-      <input type="text" value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} />
-      {errors.phone ? <div>{errors.name}</div> : null}
-      <input type="text" value={formData.website} onChange={(e) => setFormData({ ...formData, website: e.target.value })} />
-      {errors.website ? <div>{errors.name}</div> : null}
-      <textarea value={formData.comment} onChange={(e) => setFormData({ ...formData, comment: e.target.value })} />
       <button type="submit">Submit</button>
     </form>
 
