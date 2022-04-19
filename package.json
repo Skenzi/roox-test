@@ -42,8 +42,11 @@
     "webpack-dev-server": "^4.8.1"
   },
   "dependencies": {
+    "axios": "^0.26.1",
+    "formik": "^2.2.9",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
-    "react-router-dom": "^6.3.0"
+    "react-router-dom": "^6.3.0",
+    "yup": "^0.32.11"
   }
 }

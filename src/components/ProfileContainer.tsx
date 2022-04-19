@@ -4,7 +4,7 @@ import ProfileForm from "./ProfileForm";
 const ProfileContainer = () => {
     return <div className="row">
         <h1>Профиль пользователя</h1>
-        <ul></ul>
+        <ProfileForm />
     </div>
 };
 

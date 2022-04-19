@@ -1,9 +1,10 @@
 import React from "react";
 import UsersContainer from "../components/UsersContainer";
+import { UsersProp } from "../types/types";
 
-const ListUsersPage = () => {
+const ListUsersPage = ({ users }: UsersProp) => {
     return <>
-        <UsersContainer />
+        <UsersContainer users={users} />
     </>
 };
 
