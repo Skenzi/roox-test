@@ -46,6 +46,7 @@ const quickSortCompany = (arr: User[]): User[] => {
 const mappingSorts: MappingSortProps = {
   company: quickSortCompany,
   city: quickSortCity,
+  without: (arr) => arr,
 };
 
 export default mappingSorts;

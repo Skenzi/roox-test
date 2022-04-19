@@ -10,6 +10,8 @@ import { EmptyUser, User } from '../types/types';
 function App() {
   const [users, setUsers] = useState<User[]>([]);
   const [activeUser, setActiveUser] = useState<User | EmptyUser>({});
+  const [typeSort, setTypeSort] = useState('');
+
   useEffect(() => {
     const test = axios.get('https://jsonplaceholder.typicode.com/users');
     test.then((response) => {
@@ -18,9 +20,12 @@ function App() {
   }, []);
 
   const sortUsers = (type: string) => {
-    const sort = mappingSorts[type];
-    const sortedUsers = sort(users);
-    setUsers(sortedUsers);
+    if (type !== typeSort) {
+      const sort = mappingSorts[type];
+      const sortedUsers = sort(users);
+      setUsers(sortedUsers);
+      setTypeSort(type);
+    }
   };
 
   return (

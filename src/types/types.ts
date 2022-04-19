@@ -53,6 +53,7 @@ export interface MappingSortProps {
     [key: string]: (arr: User[]) => User[],
     company: (arr: User[]) => User[],
     city: (arr: User[]) => User[],
+    without: (arr: User[]) => User[],
 }
 
 export interface UsersProp {
