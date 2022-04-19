@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Errors, FormData } from '../types/types';
+import { useNavigate } from 'react-router-dom';
+import { Errors, FormData, ProfileProps } from '../types/types';
 import ProfileForm from './ProfileForm';
 import ProfileHeader from './ProfileHeader';
 
@@ -14,22 +15,22 @@ const validate = (values: FormData) => {
   return errors;
 };
 
-function ProfileContainer() {
+function ProfileContainer({ user }: ProfileProps) {
   const [formData, setFormData] = useState<FormData>({
-    name: '',
-    username: '',
-    email: '',
-    street: '',
-    city: '',
-    zipCode: '',
-    phone: '',
-    website: '',
+    name: user.name || '',
+    username: user.username || '',
+    email: user.email || '',
+    street: user.address?.street || '',
+    city: user.address?.city || '',
+    zipCode: user.address?.zipcode || '',
+    phone: user.phone || '',
+    website: user.website || '',
     comment: '',
   });
 
   const [isEdit, setIsEdit] = useState<Boolean>(false);
-
   const [errors, setErrors] = useState<Errors>({});
+  const navigation = useNavigate();
 
   const onSubmit = (e: any) => {
     e.preventDefault();
@@ -38,6 +39,7 @@ function ProfileContainer() {
       setErrors(formErrors);
     } else {
       setErrors({});
+      navigation('/', { replace: true });
     }
   };
 

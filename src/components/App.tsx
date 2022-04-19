@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Route, Routes } from 'react-router-dom';
 import SidebarContainer from './SidebarContainer';
-import ListUsersPage from '../pages/ListUsersPage';
+import UsersPage from '../pages/UsersPage';
 import ProfileUserPage from '../pages/ProfileUserPage';
 import mappingSorts from '../utils/utils';
-import { User } from '../types/types';
+import { EmptyUser, User } from '../types/types';
 
 function App() {
   const [users, setUsers] = useState<User[]>([]);
+  const [activeUser, setActiveUser] = useState<User | EmptyUser>({});
   useEffect(() => {
     const test = axios.get('https://jsonplaceholder.typicode.com/users');
     test.then((response) => {
@@ -27,8 +28,8 @@ function App() {
       <div className="row">
         <SidebarContainer sortUsers={sortUsers} />
         <Routes>
-          <Route path="/" element={<ListUsersPage users={users} />} />
-          <Route path="profile" element={<ProfileUserPage />} />
+          <Route path="/" element={<UsersPage users={users} setActiveUser={setActiveUser} />} />
+          <Route path="/profile" element={<ProfileUserPage user={activeUser} />} />
         </Routes>
       </div>
     </div>
