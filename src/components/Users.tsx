@@ -2,7 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { UsersProps } from '../types/types';
 
-function Users({ users, setActiveUser }: UsersProps) {
+function Users({ users, stateFetchData, setActiveUser }: UsersProps) {
+  if (stateFetchData === 'waiting') {
+    return <div>Получаем список пользователей</div>;
+  }
+  if (stateFetchData === 'error') {
+    return <div>Проблемы с соединением</div>;
+  }
   return (
     <>
       <ul className="list-users">

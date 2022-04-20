@@ -27,6 +27,7 @@ export interface User {
 
 export interface UsersProp {
     users: User[],
+    stateFetchData: string,
 }
 
 export interface UsersProps extends UsersProp {

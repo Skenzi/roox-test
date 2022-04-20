@@ -11,12 +11,17 @@ function App() {
   const [users, setUsers] = useState<User[]>([]);
   const [activeUser, setActiveUser] = useState<User | null>(null);
   const [typeSort, setTypeSort] = useState('');
+  const [stateFetchData, setStateFetchData] = useState('waiting');
 
   useEffect(() => {
-    const test = axios.get('https://jsonplaceholder.typicode.com/users');
-    test.then((response) => {
-      setUsers(response.data);
-    });
+    const data = axios.get('https://jsonplaceholder.typicode.com/users');
+    data
+      .then((response) => {
+        setUsers(response.data);
+        setStateFetchData('loaded');
+      }).catch(() => {
+        setStateFetchData('error');
+      });
   }, []);
 
   const sortUsers = (type: string) => {
@@ -33,7 +38,7 @@ function App() {
         <SidebarContainer sortUsers={sortUsers} />
         <div className="flex-container f-wrap page">
           <Routes>
-            <Route path="/" element={<UsersPage users={users} setActiveUser={setActiveUser} />} />
+            <Route path="/" element={<UsersPage users={users} stateFetchData={stateFetchData} setActiveUser={setActiveUser} />} />
             <Route path="/profile" element={<ProfileUserPage user={activeUser} />} />
           </Routes>
         </div>

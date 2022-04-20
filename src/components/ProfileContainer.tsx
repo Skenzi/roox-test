@@ -40,6 +40,7 @@ function ProfileContainer({ user }: ProfileProps) {
       setErrors(formErrors);
     } else {
       setErrors({});
+      console.log(JSON.stringify(formData));
       navigation('/', { replace: true });
     }
   };

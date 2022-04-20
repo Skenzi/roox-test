@@ -2,9 +2,9 @@ import React from 'react';
 import UsersContainer from '../components/UsersContainer';
 import { UsersProps } from '../types/types';
 
-function UsersPage({ users, setActiveUser }: UsersProps) {
+function UsersPage({ users, stateFetchData, setActiveUser }: UsersProps) {
   return (
-    <UsersContainer users={users} setActiveUser={setActiveUser} />
+    <UsersContainer users={users} stateFetchData={stateFetchData} setActiveUser={setActiveUser} />
   );
 }
 
