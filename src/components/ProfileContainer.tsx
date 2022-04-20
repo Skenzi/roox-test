@@ -53,13 +53,15 @@ function ProfileContainer({ user }: ProfileProps) {
       <MainHeader titleText="Профиль пользователя">
         <ProfileHeader setIsEdit={setIsEdit} />
       </MainHeader>
-      <ProfileForm
-        isEdit={isEdit}
-        errors={errors}
-        formData={formData}
-        onSubmit={onSubmit}
-        handlerFormData={handlerFormData}
-      />
+      <div className="page__content">
+        <ProfileForm
+          isEdit={isEdit}
+          errors={errors}
+          formData={formData}
+          onSubmit={onSubmit}
+          handlerFormData={handlerFormData}
+        />
+      </div>
     </>
   );
 }

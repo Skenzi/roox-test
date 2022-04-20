@@ -1,4 +1,13 @@
 .page {
     padding: 13px 41px 13px 36px;
     flex-basis: 77.44%;
+    &__header {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__content {
+        width: 100%;
+    }
 }

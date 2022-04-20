@@ -6,26 +6,26 @@ function Users({ users, setActiveUser }: UsersProps) {
   return (
     <ul className="list-users">
       {users.map((user) => (
-        <li key={user.id} className="user">
-          <div className="user__info">
+        <li key={user.id} className="list-users__item">
+          <div className="item__info">
             <div className="info__item">
-              ФИО:
+              <span className="item__name">ФИО:</span>
               {' '}
-              {user.name}
+              <span className="item__content">{user.name}</span>
             </div>
             <div className="info__item">
-              Город:
+              <span className="item__name">Город:</span>
               {' '}
-              {user.address.city}
+              <span className="item__content">{user.address.city}</span>
             </div>
             <div className="info__item">
-              Компания:
+              <span className="item__name">Компания:</span>
               {' '}
-              {user.company.name}
+              <span className="item__content">{user.company.name}</span>
             </div>
           </div>
           <Link to="/profile" state={{ user }}>
-            <button type="button" className="user-button" onClick={() => setActiveUser(user)}>Подробнее</button>
+            <button type="button" className="button button--link" onClick={() => setActiveUser(user)}>Подробнее</button>
           </Link>
         </li>
       ))}

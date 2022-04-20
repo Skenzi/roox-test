@@ -7,7 +7,7 @@ interface HeaderProps {
 
 function MainHeader({ titleText, children = [] }: HeaderProps) {
   return (
-    <header className="header">
+    <header className="page__header">
       <div className="header__item">
         <h1 className="header__title">{titleText}</h1>
       </div>

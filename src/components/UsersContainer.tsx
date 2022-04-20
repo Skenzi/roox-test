@@ -7,7 +7,9 @@ function UsersContainer({ users, setActiveUser }: UsersProps) {
   return (
     <>
       <MainHeader titleText="Список пользователей" />
-      <Users users={users} setActiveUser={setActiveUser} />
+      <div className="page__content">
+        <Users users={users} setActiveUser={setActiveUser} />
+      </div>
     </>
   );
 }
