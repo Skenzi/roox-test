@@ -29,8 +29,8 @@ function App() {
   };
 
   return (
-    <div className="container">
-      <div className="row">
+    <div className="container-md">
+      <div className="flex-container">
         <SidebarContainer sortUsers={sortUsers} />
         <Routes>
           <Route path="/" element={<UsersPage users={users} setActiveUser={setActiveUser} />} />

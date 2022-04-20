@@ -8,7 +8,7 @@ function ProfileHeader({ setIsEdit }: ProfileHeaderProps) {
   return (
     <div>
       <h1>Профиль пользователя</h1>
-      <button type="button" onClick={() => setIsEdit(true)}>Редактировать</button>
+      <button type="button" className="button" onClick={() => setIsEdit(true)}>Редактировать</button>
     </div>
   );
 }
