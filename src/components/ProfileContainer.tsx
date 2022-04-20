@@ -18,14 +18,14 @@ const validate = (values: FormData) => {
 
 function ProfileContainer({ user }: ProfileProps) {
   const [formData, setFormData] = useState<FormData>({
-    name: user.name || '',
-    username: user.username || '',
-    email: user.email || '',
-    street: user.address?.street || '',
-    city: user.address?.city || '',
-    zipCode: user.address?.zipcode || '',
-    phone: user.phone || '',
-    website: user.website || '',
+    name: user?.name || '',
+    username: user?.username || '',
+    email: user?.email || '',
+    street: user?.address.street || '',
+    city: user?.address.city || '',
+    zipCode: user?.address?.zipcode || '',
+    phone: user?.phone || '',
+    website: user?.website || '',
     comment: '',
   });
 

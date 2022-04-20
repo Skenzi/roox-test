@@ -1,21 +1,8 @@
 import React from 'react';
 import cn from 'classnames';
-import { ProfileFormProps } from '../types/types';
+import { FormData, ProfileFormProps } from '../types/types';
 
-interface MappingNamesProperties {
-  [key: string]: string,
-  name: string,
-  username: string,
-  email: string,
-  street: string,
-  city: string,
-  zipCode: string,
-  phone: string,
-  website: string,
-  comment: string,
-}
-
-const mappingNames: MappingNamesProperties = {
+const mappingNames: FormData = {
   name: 'Name',
   username: 'User name',
   email: 'Email',

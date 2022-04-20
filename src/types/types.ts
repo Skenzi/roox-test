@@ -1,5 +1,5 @@
 /* eslint no-unused-vars: "off" */
-import React from "react";
+import React from 'react';
 
 export interface User {
     name: string,
@@ -25,30 +25,6 @@ export interface User {
     website: string,
 }
 
-export interface EmptyUser {
-    name?: string,
-    company?: {
-        bs?: string,
-        catchPhrase?: string,
-        name?: string,
-    },
-    address?: {
-        street?: string,
-        city?: string,
-        suite?: string,
-        zipcode?: string,
-        geo?: {
-            lat: string,
-            lng: string,
-        },
-    },
-    id?: number,
-    email?: string,
-    phone?: string,
-    username?: string,
-    website?: string,
-}
-
 export interface MappingSortProps {
     [key: string]: (arr: User[]) => User[],
     company: (arr: User[]) => User[],
@@ -61,11 +37,11 @@ export interface UsersProp {
 }
 
 export interface UsersProps extends UsersProp {
-    setActiveUser: React.Dispatch<React.SetStateAction<{} | User>>
+    setActiveUser: React.Dispatch<React.SetStateAction<User | null>>
 }
 
 export interface ProfileProps {
-    user: User | EmptyUser,
+    user: User | null,
 }
 
 export interface SidebarMenuProps {

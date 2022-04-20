@@ -5,11 +5,11 @@ import SidebarContainer from './SidebarContainer';
 import UsersPage from '../pages/UsersPage';
 import ProfileUserPage from '../pages/ProfileUserPage';
 import mappingSorts from '../utils/utils';
-import { EmptyUser, User } from '../types/types';
+import { User } from '../types/types';
 
 function App() {
   const [users, setUsers] = useState<User[]>([]);
-  const [activeUser, setActiveUser] = useState<User | EmptyUser>({});
+  const [activeUser, setActiveUser] = useState<User | null>(null);
   const [typeSort, setTypeSort] = useState('');
 
   useEffect(() => {
