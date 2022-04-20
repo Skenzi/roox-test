@@ -4,7 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import SidebarContainer from './SidebarContainer';
 import UsersPage from '../pages/UsersPage';
 import ProfileUserPage from '../pages/ProfileUserPage';
-import mappingSorts from '../utils/utils';
+import quickSortUsers from '../utils/utils';
 import { User } from '../types/types';
 
 function App() {
@@ -21,8 +21,7 @@ function App() {
 
   const sortUsers = (type: string) => {
     if (type !== typeSort) {
-      const sort = mappingSorts[type];
-      const sortedUsers = sort(users);
+      const sortedUsers = quickSortUsers(users, type);
       setUsers(sortedUsers);
       setTypeSort(type);
     }

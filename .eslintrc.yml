@@ -16,4 +16,6 @@ plugins:
 rules: {
   'react/jsx-filename-extension': [2, { 'extensions': ['.js', '.jsx', '.ts', '.tsx'] }],
   'jsx-a11y/label-has-associated-control': 0,
+  'import/no-unresolved': 0,
+  'import/extensions': 0,
 }
