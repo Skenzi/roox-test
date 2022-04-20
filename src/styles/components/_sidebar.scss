@@ -1,0 +1,16 @@
+.sidebar {
+    padding: 35px 21px;
+    flex: 1;
+    background-color: var(--second-color);
+    &__title {
+        font-size: 12px;
+        font-weight: 400;
+    }
+    &__menu {
+        display: flex;
+        flex-direction: column;
+        & .menu__item {
+            margin-top: 10px;
+        }
+    }
+}

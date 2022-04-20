@@ -1,0 +1,15 @@
+.button {
+    padding:  5px 15px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 12px;
+    &--soft-blue {
+        background-color: #4B51EF;
+    }
+    &--inactive {
+        background-color: #afafaf;
+    }
+    &--active {
+        background-color: #52CF4F;
+    }
+}

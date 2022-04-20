@@ -1,8 +1,12 @@
 :root {
     --main-color: #fff;
-    --second-color: #000;
+    --second-color: #bdbdbd;
 }
 
 * {
     font-family: 'Roboto';
+}
+
+.center {
+    margin: 0 auto;
 }

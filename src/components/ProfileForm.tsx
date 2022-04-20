@@ -1,20 +1,12 @@
 import React from 'react';
-import { Errors, FormData } from '../types/types';
-
-interface ProfileFormProps {
-    isEdit: Boolean,
-    formData: FormData,
-    errors: Errors,
-    onSubmit: (e: any) => void,
-    handlerFormData: (property: string) => (e: any) => void,
-}
+import { ProfileFormProps } from '../types/types';
 
 function ProfileForm({
   formData, errors, onSubmit, handlerFormData, isEdit,
 }: ProfileFormProps) {
   return (
     <form onSubmit={onSubmit}>
-      <div>
+      <div className="form-container">
         <div className="form-group">
           <label htmlFor="name">Name</label>
           <input id="name" type="text" className="form-element" value={formData.name} readOnly={!isEdit} onChange={handlerFormData('name')} />
@@ -60,9 +52,8 @@ function ProfileForm({
           <textarea id="comment" value={formData.comment} readOnly={!isEdit} onChange={handlerFormData('comment')} />
         </div>
       </div>
-      <button type="submit">Submit</button>
+      <button className="button button--active" type="submit">Submit</button>
     </form>
-
   );
 }
 

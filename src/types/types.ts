@@ -96,3 +96,11 @@ export interface FormData {
     website: string,
     comment: string,
 }
+
+export interface ProfileFormProps {
+    isEdit: Boolean,
+    formData: FormData,
+    errors: Errors,
+    onSubmit: (e: any) => void,
+    handlerFormData: (property: string) => (e: any) => void,
+}

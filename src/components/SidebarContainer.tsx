@@ -4,7 +4,7 @@ import SidebarMenu from './SidebarMenu';
 
 function SidebarContainer({ sortUsers }: SidebarMenuProps) {
   return (
-    <div className="col-2">
+    <div className="sidebar">
       <SidebarMenu sortUsers={sortUsers} />
     </div>
   );

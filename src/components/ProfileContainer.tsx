@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Errors, FormData, ProfileProps } from '../types/types';
+import MainHeader from './MainHeader';
 import ProfileForm from './ProfileForm';
 import ProfileHeader from './ProfileHeader';
 
@@ -48,8 +49,10 @@ function ProfileContainer({ user }: ProfileProps) {
   };
 
   return (
-    <div className="row">
-      <ProfileHeader setIsEdit={setIsEdit} />
+    <>
+      <MainHeader titleText="Профиль пользователя">
+        <ProfileHeader setIsEdit={setIsEdit} />
+      </MainHeader>
       <ProfileForm
         isEdit={isEdit}
         errors={errors}
@@ -57,7 +60,7 @@ function ProfileContainer({ user }: ProfileProps) {
         onSubmit={onSubmit}
         handlerFormData={handlerFormData}
       />
-    </div>
+    </>
   );
 }
 

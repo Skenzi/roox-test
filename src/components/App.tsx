@@ -29,13 +29,15 @@ function App() {
   };
 
   return (
-    <div className="container-md">
+    <div className="container-md center">
       <div className="flex-container">
         <SidebarContainer sortUsers={sortUsers} />
-        <Routes>
-          <Route path="/" element={<UsersPage users={users} setActiveUser={setActiveUser} />} />
-          <Route path="/profile" element={<ProfileUserPage user={activeUser} />} />
-        </Routes>
+        <div className="flex-container f-wrap page">
+          <Routes>
+            <Route path="/" element={<UsersPage users={users} setActiveUser={setActiveUser} />} />
+            <Route path="/profile" element={<ProfileUserPage user={activeUser} />} />
+          </Routes>
+        </div>
       </div>
     </div>
   );
