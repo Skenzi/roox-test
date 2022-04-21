@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Errors, FormData, ProfileProps } from '../types/types';
-import MainHeader from './MainHeader';
 import ProfileForm from './ProfileForm';
 import ProfileHeader from './ProfileHeader';
 
@@ -51,9 +50,7 @@ function ProfileContainer({ user }: ProfileProps) {
 
   return (
     <>
-      <MainHeader titleText="Профиль пользователя">
-        <ProfileHeader setIsEdit={setIsEdit} />
-      </MainHeader>
+      <ProfileHeader setIsEdit={setIsEdit} />
       <div className="page__content">
         <ProfileForm
           isEdit={isEdit}

@@ -1,4 +1,5 @@
 import React from 'react';
+import MainHeader from './MainHeader';
 
 interface ProfileHeaderProps {
     setIsEdit: React.Dispatch<React.SetStateAction<Boolean>>,
@@ -6,9 +7,11 @@ interface ProfileHeaderProps {
 
 function ProfileHeader({ setIsEdit }: ProfileHeaderProps) {
   return (
-    <div className="header__item">
-      <button type="button" className="button button--soft-blue" onClick={() => setIsEdit(true)}>Редактировать</button>
-    </div>
+    <MainHeader titleText="Профиль пользователя">
+      <div className="header__item">
+        <button type="button" className="button button--soft-blue" onClick={() => setIsEdit(true)}>Редактировать</button>
+      </div>
+    </MainHeader>
   );
 }
 
