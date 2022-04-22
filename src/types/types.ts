@@ -34,8 +34,13 @@ export interface UsersProps extends UsersProp {
     setActiveUser: React.Dispatch<React.SetStateAction<User | null>>
 }
 
-export interface ProfileProps {
+export interface ProfilePageProps {
     user: User | null,
+}
+
+export interface ProfileContainerProps {
+    user: User | null,
+    isEdit: Boolean,
 }
 
 export interface SidebarMenuProps {

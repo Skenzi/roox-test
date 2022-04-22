@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Errors, FormData, ProfileProps } from '../types/types';
+import { Errors, FormData, ProfileContainerProps } from '../types/types';
 import ProfileForm from './ProfileForm';
-import ProfileHeader from './ProfileHeader';
 
 const validate = (values: FormData) => {
   const errors: Errors = {};
@@ -15,7 +14,7 @@ const validate = (values: FormData) => {
   return errors;
 };
 
-function ProfileContainer({ user }: ProfileProps) {
+function ProfileContainer({ user, isEdit }: ProfileContainerProps) {
   const [formData, setFormData] = useState<FormData>({
     name: user?.name || '',
     username: user?.username || '',
@@ -28,7 +27,6 @@ function ProfileContainer({ user }: ProfileProps) {
     comment: '',
   });
 
-  const [isEdit, setIsEdit] = useState<Boolean>(false);
   const [errors, setErrors] = useState<Errors>({});
   const navigation = useNavigate();
 
@@ -49,18 +47,13 @@ function ProfileContainer({ user }: ProfileProps) {
   };
 
   return (
-    <>
-      <ProfileHeader setIsEdit={setIsEdit} />
-      <div className="page__content">
-        <ProfileForm
-          isEdit={isEdit}
-          errors={errors}
-          formData={formData}
-          onSubmit={onSubmit}
-          handlerFormData={handlerFormData}
-        />
-      </div>
-    </>
+    <ProfileForm
+      isEdit={isEdit}
+      errors={errors}
+      formData={formData}
+      onSubmit={onSubmit}
+      handlerFormData={handlerFormData}
+    />
   );
 }
 

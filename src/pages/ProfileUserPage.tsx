@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ProfileContainer from '../components/ProfileContainer';
-import { ProfileProps } from '../types/types';
+import ProfileHeader from '../components/ProfileHeader';
+import { ProfilePageProps } from '../types/types';
 
-function ProfileUserPage({ user }: ProfileProps) {
+function ProfileUserPage({ user }: ProfilePageProps) {
+  const [isEdit, setIsEdit] = useState<Boolean>(false);
   return (
-    <ProfileContainer user={user} />
+    <>
+      <ProfileHeader setIsEdit={setIsEdit} />
+      <div className="page__content">
+        <ProfileContainer user={user} isEdit={isEdit} />
+      </div>
+    </>
   );
 }
 
